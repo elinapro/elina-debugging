@@ -18,8 +18,8 @@ const maxNumberOfAttempts = 5;
 // <- 32
 // > getRandomNumber(1, 50)
 // <- 11
-let min >= 1;
-let max <= 99;
+// let min >= 1;
+// let max <= 99;
 
 function getRandomNumber(min, max) {
   return Math.floor(Math.random() * (max - min)) + min;
