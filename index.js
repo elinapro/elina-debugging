@@ -12,6 +12,8 @@ let targetNumber;
 let attempts = 0;
 let maxNumberOfAttempts = 5;
 
+resetButton.style.display = "none";
+
 // Returns a random number from min (inclusive) to max (exclusive)
 // Usage:
 // > getRandomNumber(1, 50)
