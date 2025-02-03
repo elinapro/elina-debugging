@@ -10,7 +10,7 @@ const correctMessage = document.getElementById("correct");
 
 let targetNumber;
 let attempts = 0;
-const maxNumberOfAttempts = 5;
+let maxNumberOfAttempts = 5;
 
 // Returns a random number from min (inclusive) to max (exclusive)
 // Usage:
@@ -20,6 +20,7 @@ const maxNumberOfAttempts = 5;
 // <- 11
 // let min >= 1;
 // let max <= 99;
+// making a change
 
 function getRandomNumber(min, max) {
   return Math.floor(Math.random() * (max - min)) + min;
@@ -79,7 +80,7 @@ function hideAllMessages() {
 
 function setup() {
   // Get random number
-  targetNumber = getRandomNumber(1, 100);
+  targetNumber = getRandomNumber(1, 99);
   console.log(`target number: ${targetNumber}`);
 
   // Reset number of attempts
