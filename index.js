@@ -33,6 +33,8 @@ function checkGuess() {
 
   hideAllMessages();
 
+  let remainingAttempts = maxNumberOfAttempts - attempts;
+
   if (guess === targetNumber) {
     numberOfGuessesMessage.style.display = "";
     numberOfGuessesMessage.innerHTML = `You made ${attempts} guesses`;
@@ -43,32 +45,38 @@ function checkGuess() {
     guessInput.disabled = true;
   }
 
-  if (guess !== targetNumber) {
-    if (guess < targetNumber) {
-      tooLowMessage.style.display = "";
-    } else {
-      tooHighMessage.style.display = "";
-    }
-
-    const remainingAttempts = maxNumberOfAttempts - attempts;
-
-    numberOfGuessesMessage.style.display = "";
-    numberOfGuessesMessage.innerHTML = `You guessed ${guess}. <br> ${remainingAttempts} guesses remaining`;
+  // adding if attempts hits 0
+  else {
+    let remainingAttempts = maxNumberOfAttempts - attempts;
   }
 
-  // if (remainingAttempts === 1) {
-  //   numberOfGuessesMessage.innerHTML = `You guessed ${guess}. <br> ${remainingAttempts} guess remaining`;
-  // }
+  //low or high message
 
-  if (attempts === maxNumberOfAttempts) {
-    submitButton.disabled = true;
+  if (guess < targetNumber) {
+    tooLowMessage.style.display = "";
+  } else {
+    tooHighMessage.style.display = "";
+  }
+
+  numberOfGuessesMessage.style.display = "";
+
+  if (remainingAttempts > 0) {
+    numberOfGuessesMessage.innerHTML = `You guessed ${guess}. <br> ${remainingAttempts} guesses remaining`;
+  } else {
+    numberOfGuessesMessage.innerHTML = `You guessed ${guess}. <br> 0 guesses remaining`;
+    submitButton.disabled = true; // no guesses left
     guessInput.disabled = true;
   }
-
-  guessInput.value = "";
-
-  resetButton.style.display = "";
 }
+
+// if (attempts === maxNumberOfAttempts) {
+//   submitButton.disabled = true;
+//   guessInput.disabled = true;
+// }
+
+guessInput.value = "";
+
+resetButton.style.display = "";
 
 // messages = [m1, m2, m3, m4, m5]
 //elementIndex = 0 = m1, 1 = m2, 2 = m3, 3= m4, 4= m5, 5 =
@@ -84,13 +92,11 @@ function setup() {
   console.log(`target number: ${targetNumber}`);
 
   // Reset number of attempts
-  attempts = 0;
+  maxNumberOfAttempts = 5;
 
   // Enable the input and submit button
   submitButton.disabled = false;
   guessInput.disabled = false;
-
-  hideAllMessages();
 }
 
 hideAllMessages();
