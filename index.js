@@ -12,6 +12,8 @@ let targetNumber;
 let attempts = 0;
 let maxNumberOfAttempts = 5;
 
+resetButton.style.display = "none";
+
 // Returns a random number from min (inclusive) to max (exclusive)
 // Usage:
 // > getRandomNumber(1, 50)
@@ -50,7 +52,7 @@ function checkGuess() {
 
   if (guess < targetNumber) {
     tooLowMessage.style.display = "";
-  } else {
+  } else if {
     tooHighMessage.style.display = "";
   }
 
@@ -71,7 +73,7 @@ function checkGuess() {
 // }
 
 guessInput.value = "";
-
+hideAllMessages();
 resetButton.style.display = "";
 
 // messages = [m1, m2, m3, m4, m5]
