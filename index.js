@@ -12,7 +12,6 @@ let targetNumber;
 let attempts = 0;
 let maxNumberOfAttempts = 5;
 
-resetButton.style.display = "none";
 hideAllMessages();
 
 // Returns a random number from min (inclusive) to max (exclusive)
@@ -34,6 +33,8 @@ function checkGuess() {
   const guess = parseInt(guessInput.value, 10);
   attempts = attempts + 1;
 
+  hideAllMessages();
+
   //if there are 0 attempts left
   let remainingAttempts = maxNumberOfAttempts - attempts;
 
@@ -48,7 +49,8 @@ function checkGuess() {
   }
 
   //low or high message
-  else if (guess < targetNumber) {
+
+  if (guess < targetNumber) {
     tooLowMessage.style.display = "";
   } else {
     tooHighMessage.style.display = "";
@@ -89,14 +91,12 @@ function setup() {
 
   // Reset number of attempts
   maxNumberOfAttempts = 5;
+  hideAllMessages();
 
   // Enable the input and submit button
   submitButton.disabled = false;
   guessInput.disabled = false;
 }
-
-hideAllMessages();
-resetButton.style.display = "none";
 
 submitButton.addEventListener("click", checkGuess);
 resetButton.addEventListener("click", setup);
