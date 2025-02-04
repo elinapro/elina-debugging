@@ -33,6 +33,7 @@ function checkGuess() {
 
   hideAllMessages();
 
+  //if there are 0 attempts left
   let remainingAttempts = maxNumberOfAttempts - attempts;
 
   if (guess === targetNumber) {
@@ -43,11 +44,6 @@ function checkGuess() {
 
     submitButton.disabled = true;
     guessInput.disabled = true;
-  }
-
-  // adding if attempts hits 0
-  else {
-    let remainingAttempts = maxNumberOfAttempts - attempts;
   }
 
   //low or high message
