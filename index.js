@@ -38,9 +38,7 @@ function checkGuess() {
   let remainingAttempts = maxNumberOfAttempts - attempts;
 
   if (guess === targetNumber) {
-    numberOfGuessesMessage.style.display = "";
     numberOfGuessesMessage.innerHTML = `You made ${attempts} guesses`;
-
     correctMessage.style.display = "";
 
     submitButton.disabled = true;
@@ -51,12 +49,20 @@ function checkGuess() {
     } else {
       tooHighMessage.style.display = "";
     }
+
+    numberOfGuessesMessage.innerHTML = `You guessed ${guess}. <br> ${remainingAttempts} guesses remaining`;
     console.log(remainingAttempts);
 
     if (remainingAttempts > 0) {
       numberOfGuessesMessage.innerHTML = `You guessed ${guess}. <br> ${remainingAttempts} guesses remaining`;
+    } else {
+      numberOfGuessesMessage.innerHTML = `You guessed ${guess}. <br> 0 guesses remaining`;
+      submitButton.disabled = true; // no guesses left
+      guessInput.disabled = true;
     }
   }
+  resetButton.style.display = "";
+  numberOfGuessesMessage.style.display = "";
 }
 //guesses if theyre not the same- continue 5 guesses until 0,
 
