@@ -59,6 +59,7 @@ function checkGuess() {
       numberOfGuessesMessage.innerHTML = `You guessed ${guess}. <br> 0 guesses remaining`;
       submitButton.disabled = true; // no guesses left
       guessInput.disabled = true;
+      attempts = 0;
     }
   }
   resetButton.style.display = "";
